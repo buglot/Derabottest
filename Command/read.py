@@ -17,20 +17,20 @@ class readder:
             print(f'Not Find File in {self.file}')
             return False
     
-    def read_Token(self,Sheet_name,Headcolumn_Name):
+    def read_Token(self,Sheet_name,Headcolumn_Name,isToken=0):
         if self.oschaack():
             try:
                 Token_= pd.read_excel(self.file,sheet_name=Sheet_name)
-                self.Token = Token_[Headcolumn_Name]
+                self.Token = Token_[Headcolumn_Name][isToken]
                 return True
             except:
                 print(f'Error:\nSheet_name="{Sheet_name}", Headcolumn_Name="{Headcolumn_Name}"  Some one Wrong! Or All Wrong!')
                 return False
         else:
             return False
-        
+
     def consored_Token(self,CountNumber_Show=0):
-        for x in self.Token[0]:
+        for x in self.Token:
             self.Count += 1
             if self.Count >CountNumber_Show:
                 self.Token_ed += '*'
