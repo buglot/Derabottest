@@ -7,7 +7,7 @@ class readder:
         self.Token = None
         self.Token_ed =''
         self.Count = 0
-        
+
     def oschaack(self):
         if os.path.isfile(self.file):
             self.isFile = os.path.join(self.file)
@@ -29,7 +29,7 @@ class readder:
         else:
             return False
         
-    def consored_Token(self,CountNumber_Show):
+    def consored_Token(self,CountNumber_Show=0):
         for x in self.Token[0]:
             self.Count += 1
             if self.Count >CountNumber_Show:
