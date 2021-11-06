@@ -7,6 +7,7 @@ class readder:
         self.Token = None
         self.Token_ed =''
         self.Count = 0
+        
     def oschaack(self):
         if os.path.isfile(self.file):
             self.isFile = os.path.join(self.file)
