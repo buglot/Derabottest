@@ -7,6 +7,8 @@ class readder:
         self.Token = None
         self.Token_ed =''
         self.Count = 0
+        self.word =None
+        self.words_cd = 0
 
     def oschaack(self):
         if os.path.isfile(self.file):
@@ -37,6 +39,16 @@ class readder:
             else:
                 self.Token_ed += x
         return self.Token_ed
-    def read_Wordlist(self):
-        pass
-        #comming soon
+    def read_Wordlist(self,Sheet_name,Headcolumn_Name):
+        if self.oschaack():
+            try:
+                word = pd.read_excel(self.file,sheet_name=Sheet_name)
+                self.word = word[Headcolumn_Name]
+                return True
+            except:
+                print(f'Error:\nSheet_name="{Sheet_name}", Headcolumn_Name="{Headcolumn_Name}"  Some one Wrong! Or All Wrong!')
+                return False
+
+    def word_c(self):
+        self.words_cd = len(self.word)
+        return self.words_cd
