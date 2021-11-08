@@ -11,5 +11,5 @@ if Me.read_Token(Sheet_name='Token',Headcolumn_Name='Token',isToken=0):
     @bot.event
     async def on_ready():
         print('Running.......')
-
+    bot.add_cog
     bot.run(Me.Token)
