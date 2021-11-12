@@ -10,17 +10,19 @@ class readder:
         self.word =None
         self.words_cd = 0
 
-    def oschaack(self):
+    def oschaack(self,N=0):
         if os.path.isfile(self.file):
             self.isFile = os.path.join(self.file)
-            print('Reading File:',self.isFile)
+            if N ==True:
+                print('Reading File:',self.isFile)
+                N=None
             return True
         else:
             print(f'Not Find File in {self.file}')
             return False
     
-    def read_Token(self,Sheet_name,Headcolumn_Name,isToken=0):
-        if self.oschaack():
+    def read_Token(self,Sheet_name,Headcolumn_Name,isToken=0,Showpathfile=True):
+        if self.oschaack(Showpathfile):
             try:
                 Token_= pd.read_excel(self.file,sheet_name=Sheet_name)
                 self.Token = Token_[Headcolumn_Name][isToken]
